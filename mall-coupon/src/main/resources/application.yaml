@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: mall-coupon
+  profiles:
+    active: dev
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.1.204:3306/yqz-fly-commerce-marketing
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.204:8848
+        namespace: guli-mall
+        group: ${spring.profiles.active}
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 7000
+
+# 优先读取bootstrap.yaml中配置中心的配置
+coupon:
+  user:
+    name: zhangsan
+    age: 12

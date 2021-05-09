@@ -1,0 +1,24 @@
+server:
+  port: 30000
+spring:
+  application:
+    name: mall-third-party
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.204:8848
+        namespace: guli-mall
+        group: ${spring.profiles.active}
+      config:
+        server-addr: 192.168.1.204:8848
+        namespace: guli-mall
+        group: ${spring.profiles.active}
+        file-extension: yaml
+#        extension-configs:
+#          - data-id: oss.yaml
+#            group: dev
+#            refresh: true
+
+

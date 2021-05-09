@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: mall-coupon
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.1.204:8848
+        file-extension: yaml
+        namespace: guli-mall
+        group: ${spring.profiles.active}
+
+

@@ -1,0 +1,19 @@
+server:
+  port: 89
+spring:
+  application:
+    name: mall-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.204:8848
+        namespace: guli-mall
+        group: ${spring.profiles.active}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        group: ${spring.cloud.nacos.discovery.group}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yml
+        refresh-enabled: true
