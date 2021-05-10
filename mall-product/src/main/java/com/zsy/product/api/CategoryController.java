@@ -2,7 +2,9 @@ package com.zsy.product.api;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
+import com.zsy.product.vo.Catalogs2Vo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,7 @@ public class CategoryController {
     @RequestMapping("/list/tree")
     public R list() {
         List<CategoryEntity> entities = categoryService.listWithTree();
+        //Map<String, List<Catalogs2Vo>> catalogJson = categoryService.getCatalogJson();
         return R.ok().put("data", entities);
     }
 
