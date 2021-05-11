@@ -21,23 +21,23 @@ import java.util.UUID;
 @SpringBootTest
 class RedisTest {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
-
-
-    @Test
-    void contextLoads() {
-    }
-
-    @Test
-    void testStringRedisTemplate() {
-        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
-        System.out.println("redis链接信息：" + stringRedisTemplate);
-        // 保存
-        ops.set("hello" , "world_ligel" + UUID.randomUUID());
-        // 查询
-        String hello = ops.get("hello");
-        System.out.println("获取的结果：" + hello);
-    }
+//    @Autowired
+//    private StringRedisTemplate stringRedisTemplate;
+//
+//
+//    @Test
+//    void contextLoads() {
+//    }
+//
+//    @Test
+//    void testStringRedisTemplate() {
+//        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+//        System.out.println("redis链接信息：" + stringRedisTemplate);
+//        // 保存
+//        ops.set("hello" , "world_ligel" + UUID.randomUUID());
+//        // 查询
+//        String hello = ops.get("hello");
+//        System.out.println("获取的结果：" + hello);
+//    }
 
 }

@@ -3,6 +3,7 @@ package com.zsy.order.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.zsy.order.feign.MemberFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.zsy.order.service.OrderService;
 import com.zsy.common.utils.PageUtils;
 import com.zsy.common.utils.R;
 
+import javax.annotation.Resource;
 
 
 /**
@@ -29,6 +31,9 @@ import com.zsy.common.utils.R;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
+    @Resource
+    private MemberFeignService memberFeignService;
 
     /**
      * 列表

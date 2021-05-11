@@ -1,27 +1,27 @@
-server:
-  port: 9000
-
-spring:
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://192.168.1.204:3306/yqz-fly-commerce-indent
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  profiles:
-    active: dev
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.1.204:8848
-        namespace: guli-mall
-        group: ${spring.profiles.active}
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-  application:
-    name: mall-order
-
-mybatis-plus:
-  mapper-locations: classpath:/mapper/**/*.xml
-  global-config:
-    db-config:
-      id-type: auto
+#server:
+#  port: 9000
+#
+#spring:
+#  datasource:
+#    username: root
+#    password: root
+#    url: jdbc:mysql://192.168.1.204:3306/yqz-fly-commerce-indent
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  profiles:
+#    active: dev
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.1.204:8848
+#        namespace: guli-mall
+#        group: ${spring.profiles.active}
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#  application:
+#    name: mall-order
+#
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto
