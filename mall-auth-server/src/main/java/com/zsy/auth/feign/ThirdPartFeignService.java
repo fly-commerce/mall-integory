@@ -1,6 +1,5 @@
 package com.zsy.auth.feign;
 
-
 import com.zsy.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
