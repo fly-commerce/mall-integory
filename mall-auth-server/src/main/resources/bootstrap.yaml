@@ -1,3 +1,5 @@
+server:
+  port: 20000
 spring:
   application:
     name: mall-auth-server
@@ -5,10 +7,13 @@ spring:
     active: dev
   cloud:
     nacos:
-      config:
+      discovery:
         server-addr: 192.168.1.204:8848
-        file-extension: yaml
         namespace: guli-mall
         group: ${spring.profiles.active}
-
-
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        group: ${spring.cloud.nacos.discovery.group}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yml
+        refresh-enabled: true
