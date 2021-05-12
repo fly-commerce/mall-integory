@@ -19,9 +19,9 @@
 
 
 # 阿里云oss
-alibaba:
-  cloud:
-    access-key: LTAI5tCa3HZuGke6UQRaLFwN
-    secret-key: YJxoVyHk4DsDoYH1pqvW7ZxyVUHEFf
-    oss:
-      endpoint: oss-cn-chengdu.aliyuncs.com
+#alibaba:
+#  cloud:
+#    access-key: LTAI5tCa3HZuGke6UQRaLFwN
+#    secret-key: YJxoVyHk4DsDoYH1pqvW7ZxyVUHEFf
+#    oss:
+#      endpoint: oss-cn-chengdu.aliyuncs.com

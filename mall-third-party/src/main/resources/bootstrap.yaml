@@ -12,13 +12,10 @@ spring:
         namespace: guli-mall
         group: ${spring.profiles.active}
       config:
-        server-addr: 192.168.1.204:8848
-        namespace: guli-mall
-        group: ${spring.profiles.active}
-        file-extension: yaml
-#        extension-configs:
-#          - data-id: oss.yaml
-#            group: dev
-#            refresh: true
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        group: ${spring.cloud.nacos.discovery.group}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yml
+        refresh-enabled: true
 
 
