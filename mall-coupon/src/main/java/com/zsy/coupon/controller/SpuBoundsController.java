@@ -1,24 +1,22 @@
 package com.zsy.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
+import com.zsy.common.utils.PageUtils;
+import com.zsy.common.utils.R;
+import com.zsy.coupon.entity.SpuBoundsEntity;
+import com.zsy.coupon.service.SpuBoundsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.zsy.coupon.entity.SpuBoundsEntity;
-import com.zsy.coupon.service.SpuBoundsService;
-import com.zsy.common.utils.PageUtils;
-import com.zsy.common.utils.R;
-
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
  * 商品spu积分设置
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @RestController
 @RequestMapping("coupon/spubounds")
@@ -52,7 +50,7 @@ public class SpuBoundsController {
     /**
      * 保存
      */
-    @PostMapping("/save")
+    @RequestMapping("/save")
     //@RequiresPermissions("coupon:spubounds:save")
     public R save(@RequestBody SpuBoundsEntity spuBounds){
 		spuBoundsService.save(spuBounds);

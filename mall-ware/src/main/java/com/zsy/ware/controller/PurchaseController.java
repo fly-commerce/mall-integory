@@ -1,67 +1,101 @@
 package com.zsy.ware.controller;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
+import com.zsy.common.utils.PageUtils;
+import com.zsy.common.utils.R;
+import com.zsy.ware.entity.PurchaseEntity;
+import com.zsy.ware.service.PurchaseService;
 import com.zsy.ware.vo.MergeVo;
 import com.zsy.ware.vo.PurchaseDoneVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.zsy.ware.entity.PurchaseEntity;
-import com.zsy.ware.service.PurchaseService;
-import com.zsy.common.utils.PageUtils;
-import com.zsy.common.utils.R;
+import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+// import org.apache.shiro.authz.annotation.RequiresPermissions;
 
 
 /**
  * 采购信息
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-11-17 13:50:10
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ * @date 2020-08-02 15:37:46
  */
 @RestController
 @RequestMapping("ware/purchase")
 public class PurchaseController {
-    @Autowired
+    @Resource
     private PurchaseService purchaseService;
 
-    ///ware/purchase/done
+    /**
+     * 07、完成采购
+     * Post * /ware/purchase/done
+     * 请求参数
+     * {
+     *    id: 123,//采购单id
+     *    items: [{itemId:1,status:4,reason:""}]//完成/失败的需求详情
+     * }
+     * 响应数据
+     * {
+     * 	"msg": "success",
+     * 	"code": 0
+     * }
+     */
     @PostMapping("/done")
-    public R finish(@RequestBody PurchaseDoneVo doneVo){
-
-        purchaseService.done(doneVo);
+    // @RequiresPermissions("ware:purchase:save")
+    public R finish(@RequestBody PurchaseDoneVo purchaseDoneVo){
+        purchaseService.done(purchaseDoneVo);
 
         return R.ok();
     }
 
     /**
-     * 领取采购单
-     * @return
+     * 06、领取采购单
+     * /ware/purchase/received
+     * 细节不考虑：1、员工只能领取自己的采购单
+     *            2、只能领取没有被自己领取过的采购单
      */
     @PostMapping("/received")
     public R received(@RequestBody List<Long> ids){
-
         purchaseService.received(ids);
 
         return R.ok();
     }
 
-    ///ware/purchase/unreceive/list
-    ///ware/purchase/merge
+    /**
+     * 04、合并采购需求
+     *       1）选择了指定的采购欧丹
+     *       2）没有选择，默认创建一个新单
+     * /ware/purchase/merge
+     * 请求参数
+     * {
+     *   purchaseId: 1, //整单id
+     *   items:[1,2,3,4] //合并项集合
+     * }
+     * 响应数据
+     * {
+     * 	"msg": "success",
+     * 	"code": 0
+     * }
+     */
     @PostMapping("/merge")
+    // @RequiresPermissions("ware:purchase:save")
     public R merge(@RequestBody MergeVo mergeVo){
-
         purchaseService.mergePurchase(mergeVo);
+
         return R.ok();
     }
 
+    /**
+     * 05、查询未领取的采购单
+     * /ware/purchase/unreceive/list
+     */
     @RequestMapping("/unreceive/list")
-    //@RequiresPermissions("ware:purchase:list")
+    // @RequiresPermissions("ware:purchase:list")
     public R unreceivelist(@RequestParam Map<String, Object> params){
         PageUtils page = purchaseService.queryPageUnreceivePurchase(params);
 
@@ -72,7 +106,7 @@ public class PurchaseController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("ware:purchase:list")
+    // @RequiresPermissions("ware:purchase:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = purchaseService.queryPage(params);
 
@@ -84,7 +118,7 @@ public class PurchaseController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("ware:purchase:info")
+    // @RequiresPermissions("ware:purchase:info")
     public R info(@PathVariable("id") Long id){
 		PurchaseEntity purchase = purchaseService.getById(id);
 
@@ -95,10 +129,10 @@ public class PurchaseController {
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("ware:purchase:save")
+    // @RequiresPermissions("ware:purchase:save")
     public R save(@RequestBody PurchaseEntity purchase){
-        purchase.setUpdateTime(new Date());
         purchase.setCreateTime(new Date());
+        purchase.setUpdateTime(new Date());
 		purchaseService.save(purchase);
 
         return R.ok();
@@ -108,7 +142,7 @@ public class PurchaseController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("ware:purchase:update")
+    // @RequiresPermissions("ware:purchase:update")
     public R update(@RequestBody PurchaseEntity purchase){
 		purchaseService.updateById(purchase);
 
@@ -119,7 +153,7 @@ public class PurchaseController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("ware:purchase:delete")
+    // @RequiresPermissions("ware:purchase:delete")
     public R delete(@RequestBody Long[] ids){
 		purchaseService.removeByIds(Arrays.asList(ids));
 

@@ -1,25 +1,23 @@
 package com.zsy.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
 import com.zsy.common.to.SkuReductionTo;
+import com.zsy.common.utils.PageUtils;
+import com.zsy.common.utils.R;
+import com.zsy.coupon.entity.SkuFullReductionEntity;
+import com.zsy.coupon.service.SkuFullReductionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.zsy.coupon.entity.SkuFullReductionEntity;
-import com.zsy.coupon.service.SkuFullReductionService;
-import com.zsy.common.utils.PageUtils;
-import com.zsy.common.utils.R;
-
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
  * 商品满减信息
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @RestController
 @RequestMapping("coupon/skufullreduction")
@@ -27,14 +25,13 @@ public class SkuFullReductionController {
     @Autowired
     private SkuFullReductionService skuFullReductionService;
 
-
     @PostMapping("/saveinfo")
-    public R saveInfo(@RequestBody SkuReductionTo reductionTo){
+    public R saveInfo(@RequestBody SkuReductionTo skuReductionTo){
 
-        skuFullReductionService.saveSkuReduction(reductionTo);
+        skuFullReductionService.saveSkuReduction(skuReductionTo);
+
         return R.ok();
     }
-
 
     /**
      * 列表

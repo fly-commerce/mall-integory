@@ -1,28 +1,23 @@
 package com.zsy.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.zsy.coupon.entity.SeckillPromotionEntity;
-import com.zsy.coupon.service.SeckillPromotionService;
 import com.zsy.common.utils.PageUtils;
 import com.zsy.common.utils.R;
+import com.zsy.coupon.entity.SeckillPromotionEntity;
+import com.zsy.coupon.service.SeckillPromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Map;
 
 
 /**
  * 秒杀活动
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @RestController
 @RequestMapping("coupon/seckillpromotion")
@@ -59,6 +54,8 @@ public class SeckillPromotionController {
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:seckillpromotion:save")
     public R save(@RequestBody SeckillPromotionEntity seckillPromotion){
+        seckillPromotion.setUserId(1L);
+        seckillPromotion.setCreateTime(new Date());
 		seckillPromotionService.save(seckillPromotion);
 
         return R.ok();
