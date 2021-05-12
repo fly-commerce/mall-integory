@@ -2,6 +2,8 @@ package com.zsy.ware.vo;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 /**
  * @Description:
  * @Created: with IntelliJ IDEA.
@@ -9,12 +11,12 @@ import lombok.Data;
  **/
 
 @Data
-public class PurchaseItemDoneVo {
+public class FareVo {
 
-    private Long itemId;
+    private MemberAddressVo address;
 
-    private Integer status;
-
-    private String reason;
+    private BigDecimal fare;
 
 }
+
+

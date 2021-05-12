@@ -2,17 +2,17 @@ package com.zsy.ware.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 库存工作单
- *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:59:40
+ * 
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ * @date 2020-08-02 15:37:46
  */
 @Data
 @TableName("wms_ware_order_task")
