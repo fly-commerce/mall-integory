@@ -2,17 +2,17 @@ package com.zsy.member.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 会员登录记录
- *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:47:05
+ * 
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ * @date 2020-08-02 15:18:09
  */
 @Data
 @TableName("ums_member_login_log")

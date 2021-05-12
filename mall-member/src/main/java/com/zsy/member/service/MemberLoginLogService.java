@@ -9,9 +9,9 @@ import java.util.Map;
 /**
  * 会员登录记录
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:47:05
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ * @date 2020-08-02 15:18:09
  */
 public interface MemberLoginLogService extends IService<MemberLoginLogEntity> {
 

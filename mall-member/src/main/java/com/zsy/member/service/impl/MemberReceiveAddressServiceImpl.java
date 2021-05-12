@@ -1,18 +1,17 @@
 package com.zsy.member.service.impl;
 
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zsy.common.utils.PageUtils;
 import com.zsy.common.utils.Query;
-
 import com.zsy.member.dao.MemberReceiveAddressDao;
 import com.zsy.member.entity.MemberReceiveAddressEntity;
 import com.zsy.member.service.MemberReceiveAddressService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 
 @Service("memberReceiveAddressService")
@@ -27,7 +26,6 @@ public class MemberReceiveAddressServiceImpl extends ServiceImpl<MemberReceiveAd
 
         return new PageUtils(page);
     }
-
     @Override
     public List<MemberReceiveAddressEntity> getAddress(Long memberId) {
 
@@ -36,4 +34,6 @@ public class MemberReceiveAddressServiceImpl extends ServiceImpl<MemberReceiveAd
 
         return addressList;
     }
+
+
 }

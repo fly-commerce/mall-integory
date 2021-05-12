@@ -16,6 +16,7 @@
         <result property="priviledgeBirthday" column="priviledge_birthday"/>
         <result property="note" column="note"/>
     </resultMap>
+    <select id="getDefaultLevel" resultType="com.zsy.member.entity.MemberLevelEntity"></select>
 
 
 </mapper>
