@@ -1,28 +1,22 @@
 package com.zsy.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.zsy.coupon.entity.HomeSubjectEntity;
-import com.zsy.coupon.service.HomeSubjectService;
 import com.zsy.common.utils.PageUtils;
 import com.zsy.common.utils.R;
+import com.zsy.coupon.entity.HomeSubjectEntity;
+import com.zsy.coupon.service.HomeSubjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
  * 首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @RestController
 @RequestMapping("coupon/homesubject")
@@ -56,8 +50,7 @@ public class HomeSubjectController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    //@RequiresPermissions("coupon:homesubject:save")
+    @PostMapping("/save")
     public R save(@RequestBody HomeSubjectEntity homeSubject){
 		homeSubjectService.save(homeSubject);
 
@@ -68,7 +61,6 @@ public class HomeSubjectController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("coupon:homesubject:update")
     public R update(@RequestBody HomeSubjectEntity homeSubject){
 		homeSubjectService.updateById(homeSubject);
 

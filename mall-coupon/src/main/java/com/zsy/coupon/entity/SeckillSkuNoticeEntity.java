@@ -2,17 +2,17 @@ package com.zsy.coupon.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
 
 /**
  * 秒杀商品通知订阅
  * 
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:39
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @Data
 @TableName("sms_seckill_sku_notice")

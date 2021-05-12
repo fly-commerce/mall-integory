@@ -1,17 +1,17 @@
 package com.zsy.coupon.dao;
 
-import com.zsy.coupon.entity.SeckillSkuRelationEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zsy.coupon.entity.SeckillSkuRelationEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 秒杀活动商品关联
+ * 
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
  */
 @Mapper
 public interface SeckillSkuRelationDao extends BaseMapper<SeckillSkuRelationEntity> {
-
+	
 }

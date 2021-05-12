@@ -2,18 +2,17 @@ package com.zsy.coupon.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.math.BigDecimal;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 商品会员价格
+ * 
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
  *
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
  */
 @Data
 @TableName("sms_member_price")

@@ -1,15 +1,15 @@
 package com.zsy.coupon.dao;
 
-import com.zsy.coupon.entity.HomeSubjectSpuEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zsy.coupon.entity.HomeSubjectSpuEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 专题商品
  * 
- * @author zsy
- * @email 594983498@qq.com
- * @date 2019-10-08 09:36:40
+ * @author wanzenghui
+ * @email lemon_wan@aliyun.com
+ *
  */
 @Mapper
 public interface HomeSubjectSpuDao extends BaseMapper<HomeSubjectSpuEntity> {
